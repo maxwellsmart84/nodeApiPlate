@@ -5,8 +5,10 @@
   "author": "Maxwell Krause",
   "license": "ISC",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "@babel/cli": "^7.0.0-beta.40",
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/node": "^7.0.0-beta.40",
+    "@babel/preset-env": "^7.0.0-beta.40",
     "eslint": "^4.18.2",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.9.0",
@@ -17,6 +19,7 @@
     "express": "^4.16.2"
   },
   "scripts": {
-    "start": "nodemon --exec 'babel-node src/serve.js'"
+    "start": "nodemon --exec 'babel-node src/serve.js'",
+    "build": "node_modules/.bin/babel src --out-dir lib --ignore src/db/migrations --copy-files --source-maps"
   }
 }
