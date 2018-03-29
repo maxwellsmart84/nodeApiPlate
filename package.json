@@ -1,17 +1,28 @@
 {
-  "name": "node-api-plate",
+  "name": "ecmanext-express",
   "version": "1.0.0",
   "description": "",
   "author": "Maxwell Krause",
   "license": "ISC",
+  "engines": {
+    "node": "^8.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxwellsmart84/nodeApiPlate"
+  },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.40",
     "@babel/core": "^7.0.0-beta.40",
     "@babel/node": "^7.0.0-beta.40",
     "@babel/preset-env": "^7.0.0-beta.40",
+    "@babel/register": "^7.0.0-beta.42",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
     "eslint": "^4.18.2",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.9.0",
+    "mocha": "^5.0.5",
     "nodemon": "^1.17.1"
   },
   "dependencies": {
@@ -19,7 +30,8 @@
     "express": "^4.16.2"
   },
   "scripts": {
-    "start": "nodemon --exec 'babel-node src/serve.js'",
+    "test": "mocha --compilers js:babel-register",
+    "start": "nodemon --exec babel-node src/serve.js",
     "build": "node_modules/.bin/babel src --out-dir lib --ignore src/db/migrations --copy-files --source-maps"
   }
 }
