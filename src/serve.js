@@ -17,3 +17,6 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.info(`Dev server started on port ${PORT}! Happy coding!`);
 });
+
+// for tests
+export default app;
