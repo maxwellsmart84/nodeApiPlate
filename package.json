@@ -32,7 +32,8 @@
   },
   "scripts": {
     "test": "mocha --require ./babelPolyfill.js test/test.js",
+    "clean": "rm -rf lib",
     "start": "nodemon --exec babel-node src/serve.js",
-    "build": "node_modules/.bin/babel src --out-dir lib --ignore src/db/migrations --copy-files --source-maps"
+    "build": "node_modules/.bin/babel src --out-dir lib --copy-files --source-maps"
   }
 }
