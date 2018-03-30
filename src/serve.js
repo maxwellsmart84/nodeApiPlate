@@ -7,10 +7,10 @@ const PORT = process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.listen(PORT, () => {
-  console.log(`Dev server started on port ${PORT}! Happy coding!`);
+app.get('/', (req, res) => {
+  res.status(200).send({ server: 'online' });
 });
 
-app.get('/', (req, res) => {
-  res.status(200).send('A-OK');
+app.listen(PORT, () => {
+  console.info(`Dev server started on port ${PORT}! Happy coding!`);
 });
