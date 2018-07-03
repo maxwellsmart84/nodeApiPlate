@@ -14,17 +14,16 @@ app.get('/', (req, res) => {
   res.status(200).send({ server: 'online' });
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.info(`Dev server started on port ${PORT}! Happy coding!`);
 });
 
 
 process.on('SIGINT', () => {
-  app.close(() => {
-    console.error('Program has unexpectedly stopped. Disconnecting from db and stopping server');
+  server.close(() => {
+    console.error('Program has unexpectedly stopped, gracefully exiting now');
     process.exit(1);
   });
 });
-
 // for tests
 export default app;
