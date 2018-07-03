@@ -21,8 +21,7 @@ app.listen(PORT, () => {
 
 process.on('SIGINT', () => {
   app.close(() => {
-    console.error('Rhinoapi has unexpectedly stopped. Disconnecting from db.'.yellow);
-    sql.destroy();
+    console.error('Program has unexpectedly stopped. Disconnecting from db and stopping server');
     process.exit(1);
   });
 });
