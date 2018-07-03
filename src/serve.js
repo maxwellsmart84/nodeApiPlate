@@ -18,5 +18,14 @@ app.listen(PORT, () => {
   console.info(`Dev server started on port ${PORT}! Happy coding!`);
 });
 
+
+process.on('SIGINT', () => {
+  app.close(() => {
+    console.error('Rhinoapi has unexpectedly stopped. Disconnecting from db.'.yellow);
+    sql.destroy();
+    process.exit(1);
+  });
+});
+
 // for tests
 export default app;
